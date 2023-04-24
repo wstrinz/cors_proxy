@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: ruby-proxy-server
+    env: ruby
+    buildCommand: "bundle install"
+    startCommand: "bundle exec ruby proxy_server.rb"
+    dockerfilePath: "./Dockerfile"
+    healthCheckPath: "/"
+    numInstances: 1
+    autoDeploy: true
