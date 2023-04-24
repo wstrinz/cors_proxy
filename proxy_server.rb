@@ -34,8 +34,8 @@ helpers do
 
   def authorized?
     @auth ||= Rack::Auth::Basic::Request.new(request.env)
-    binding.irb
     return false unless @auth.provided? && @auth.basic? && @auth.credentials
+
     username, password = @auth.credentials
     username == ENV["CORS_PROXY_USERNAME"] &&
       password == ENV["CORS_PROXY_PASSWORD"]
